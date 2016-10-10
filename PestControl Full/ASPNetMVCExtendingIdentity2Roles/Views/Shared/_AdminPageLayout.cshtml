@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title - AlfaJ Admin </title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/typicons.min.css" rel="stylesheet" />
+    <link href="~/Content/selectize.css" rel="stylesheet" />
+    <link href="~/Content/selectize.default.css" rel="stylesheet" />
+    <link href="~/Content/default.css" rel="stylesheet" />
+    <link href="~/Content/simplr.css" rel="stylesheet" />
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,700,600,500,900,800' rel='stylesheet' type='text/css'>
+
+    @*<link href="~/Scripts/file-uploader/css/jquery.fileupload.css" rel="stylesheet" />
+        <link href="~/Scripts/file-uploader/css/jquery.fileupload-ui.css" rel="stylesheet" />*@
+    @RenderSection("css", required: false)
+    <!--[if lt IE 9]>
+        <link href="~/Contents/styles-ie8.css" rel="stylesheet">
+    <![endif]-->
+    <!-- jquery Respond Plugin for IE8 -->
+    <script src="~/Scripts/respond.js"></script>
+    <script src="~/Scripts/admin/html5shiv.js"></script>
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom" class="animated fadeIn delay1">
+    <div class="wrapper">
+        <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand " href="@Url.Action("LogIn","Account")">
+                        <h1 class="fontawesome-icon"></h1>
+                    </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
+                    <ul class="nav navbar-nav">
+                        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                    <ul class="nav navbar-nav">
+                        @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                        {
+                            if (HttpContext.Current.User.IsInRole("Admin") || HttpContext.Current.User.IsInRole("ContentAdmin"))
+                            {
+                                <li class="page-scroll">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="@Url.Action("EditMenu", "Admin")">Add Menu</a></li>
+                                        <li><a href="@Url.Action("MenuList", "Admin")">Manage Menu</a></li>
+                                    </ul>
+
+                                </li>
+                                <li class="page-scroll">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Services <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="@Url.Action("EditSubMenu", "Admin")"> Add Services</a></li>
+                                        <li><a href="@Url.Action("SubMenuList", "Admin", new { })">Manage Services</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="page-scroll">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gallery <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="@Url.Action("CreateGallery", "Admin")">Add Gallery</a></li>
+                                        <li><a href="@Url.Action("GaleryList", "Admin")">Manage Gallery</a></li>
+                                        <li><a href="@Url.Action("Create", "ImageGallery")">Add Images</a></li>
+                                    </ul>
+
+                                </li>
+                            }
+                            <li class="page-scroll">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    @if (HttpContext.Current.User.IsInRole("Admin") || HttpContext.Current.User.IsInRole("PaymentAdmin"))
+                                    {
+                                        <li><a href="@Url.Action("PaymentList", "Admin")">Payment List</a></li>
+                                    }
+                                    @if (HttpContext.Current.User.IsInRole("Admin") || HttpContext.Current.User.IsInRole("ContactAdmin"))
+                                    {
+                                        <li><a href="@Url.Action("ContactList", "Admin")">Schedule Request</a></li>    
+                                    }
+                                </ul>
+                            </li>
+                            <li><a href="@Url.Action("LogOff", "Account")">Sign Out</a></li>
+                        }
+
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+        <section class="page-content">
+            <section class="container">
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <div class="alert alert-danger">
+                        <a class="close" data-dismiss="alert">×</a>
+                        @ViewBag.ErrorMessage
+                    </div>
+                }
+                @if (ViewBag.SuccessMessage != null)
+                {
+                    <div style="padding-left: 31%" class="alert alert-success">
+                        <a class="close" data-dismiss="alert">×</a>
+                        <strong>Success!</strong> @ViewBag.SuccessMessage
+                    </div>
+                }
+                @if (ViewBag.InfoMessage != null)
+                {
+
+                    <div class="alert alert-info">
+                        <a class="close" data-dismiss="alert">×</a>
+                        <strong>Info! </strong>@ViewBag.InfoMessage
+                    </div>
+                }
+            </section>
+            <div class="mainbodycontent" style="margin: 0 auto;width: 70%">
+                @RenderBody()
+            </div>
+
+        </section>
+        <!-- footer -->
+        <section id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-8 col-lg-8">
+                        <p>&copy; Copyright 2015 - # - All Rights Reserved.</p>
+                    </div><!-- col lg 6 -->
+                </div><!-- row -->
+            </div><!-- container -->
+        </section>
+        <!-- footer -->
+        <div class="dropdown-bg"></div>
+    </div>
+    <!-- Core JavaScript Files -->
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/admin/jquery-ui-1.10.4.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/admin/jquery.easing.min.js"></script>
+    <script src="~/Scripts/admin/jquery.masonry-3.1.5.js"></script>
+    <script src="~/Scripts/admin/selectize.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Scripts/admin/simplr.js"></script>
+    <script src="~/Scripts/admin/modernizr.custom.js"></script>
+    <script src="~/Scripts/admin/toucheffects.js"></script>
+    <script src="~/Scripts/admin/heartcode-canvasloader-min.js"></script>
+    <script src="~/Scripts/admin/services.js"></script>
+    <script src="~/Scripts/admin/scripts.js"></script>
+    <script src="~/Scripts/admin/locationLookup.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

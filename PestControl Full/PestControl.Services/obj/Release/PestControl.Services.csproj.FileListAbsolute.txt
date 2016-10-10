@@ -1,0 +1,12 @@
+D:\PROJECTS\PestControl\PestControl.Services\bin\Release\PestControl.Services.dll
+D:\PROJECTS\PestControl\PestControl.Services\bin\Release\PestControl.Services.pdb
+D:\PROJECTS\PestControl\PestControl.Services\bin\Release\FluentNHibernate.dll
+D:\PROJECTS\PestControl\PestControl.Services\bin\Release\Iesi.Collections.dll
+D:\PROJECTS\PestControl\PestControl.Services\bin\Release\NHibernate.dll
+D:\PROJECTS\PestControl\PestControl.Services\bin\Release\PestControl.Dao.dll
+D:\PROJECTS\PestControl\PestControl.Services\bin\Release\PestControl.Model.dll
+D:\PROJECTS\PestControl\PestControl.Services\bin\Release\PestControl.Dao.pdb
+D:\PROJECTS\PestControl\PestControl.Services\bin\Release\PestControl.Model.pdb
+D:\PROJECTS\PestControl\PestControl.Services\obj\Release\PestControl.Services.csprojResolveAssemblyReference.cache
+D:\PROJECTS\PestControl\PestControl.Services\obj\Release\PestControl.Services.dll
+D:\PROJECTS\PestControl\PestControl.Services\obj\Release\PestControl.Services.pdb

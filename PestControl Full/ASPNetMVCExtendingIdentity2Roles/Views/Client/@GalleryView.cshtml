@@ -1,0 +1,74 @@
+﻿@model IEnumerable<PestControl.Model.Entity.Gallery>
+    @* <PestControl.Model.Entity.Gallery> *@
+
+    @{
+        ViewBag.Title = "GalleryView";
+        Layout = "~/Views/Shared/_MainPagePartialLayout.cshtml";
+    }
+    <section class="title">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h1>Gallery</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / .title -->
+    @{
+        List<PestControl.Model.Entity.Gallery> GalleryList = (List<PestControl.Model.Entity.Gallery>)Model;
+        //loop for total gallery model count
+        for (int ii = 0; ii < GalleryList.Count; ii++)
+        {
+            <section id="portfolio" class="container main">
+                <h4>@GalleryList[ii].Name</h4>
+                <ul class="gallery col-4">
+                    @{
+            decimal rowCount = (Decimal)Math.Ceiling((double)GalleryList[ii].GalleryImages.Count / 4);
+            int kk = 0;
+            int rr = 0;
+            for (int jj = 0; jj < rowCount; jj++)
+            {
+                for (; kk < GalleryList[ii].GalleryImages.Count; kk++)
+                {
+                    int fIndex = GalleryList[ii].GalleryImages[kk].ImageUrl.IndexOf("Images", System.StringComparison.Ordinal);
+                    <li>
+                        <div class="preview">
+                            <img alt=" " src="@GalleryList[ii].GalleryImages[kk].ImageUrl.Substring(fIndex)">
+                            @{
+                    string imageUrlWithImageName = GalleryList[ii].GalleryImages[kk].ImageUrl.Substring(fIndex).ToString();
+                    // string folderPath = imageUrlWithImageName.Substring(0, imageUrlWithImageName.LastIndexOf(("\\")));
+                    var imageNameWithExtention = imageUrlWithImageName.Substring(imageUrlWithImageName.LastIndexOf(("\\")) + 1);
+
+                    int fL = imageNameWithExtention.IndexOf(".");
+                    String imageName = imageNameWithExtention.Substring(0, fL);
+                    <p>
+                        @imageName
+                    </p>
+                            }
+                            <div class="overlay">
+                            </div>
+                            <div class="links">
+                                <a data-toggle="modal" href="#modal-@kk"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
+                            </div>
+                        </div>
+                        <div id="modal-@kk" class="modal hide fade">
+                            <a class="close-modal" href="javascript:;" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></a>
+                            <div class="modal-body">
+                                <img src="@GalleryList[ii].GalleryImages[kk].ImageUrl.Substring(fIndex)" alt=" " width="100%" style="max-height:400px">
+                            </div>
+                        </div>
+                    </li>
+                    if (rr > 2 && rr / 3 == 0)
+                    {
+                        kk = rr;
+                        break;
+                    }
+                    rr++;
+                }
+            }
+                    }
+                </ul>
+            </section>
+        }//loop end for total gallery model count
+    }

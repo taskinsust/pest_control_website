@@ -1,0 +1,59 @@
+﻿<table>
+	<tr><td colspan="3" style="height:20px;"></td></tr>
+	<tr>
+		<td style="width:20px;"></td>
+		<td>
+			<img src="$Logo$" alt="PestControl" style="width:140px;height:32px;" />
+
+			<table>
+				<tr><td style="height:20px;"></td></tr>
+				<tr>
+					<td style="border: solid 1px #ddd; border-width: 1px 0; padding: 20px 0;font-family:Tahoma;">
+					Dear Admin,
+					<br/><br/>
+					A client has been requested for schedule through the contact form.
+					<br/><br/>
+					Information is given below.
+					<br/><br/>
+					========= Contact Request Information ==========
+					<br/><br/>
+					First Name : $FirstName$
+					<br/>
+					Last Name : $LastName$
+					<br/>
+					Email : $Email$
+					<br/>
+					Address : $Address$
+					<br/>
+					City : $City$
+					<br/>
+					State/Province : $State$
+					<br/>
+					Zip/Postal Code : $Zip$
+					<br/>
+					Phone : $Phone$
+					<br/>
+					Requested Time : $Schedual$
+					<br/>
+					Message : $Message$					
+					<br/><br/>
+					Please take necessary action.
+					<br/><br/>
+					With Regards,
+					<br/><br/>
+					The PestControl Team
+					<br/>
+					</td>
+				</tr>
+				<tr><td style="height:10px;"></td></tr>
+			</table>
+
+			<p style="font-size: 80%; font-family:Tahoma;">
+				This message was sent from $Recipient$.<br />
+				PestControl Inc, USA.
+			</p>
+		</td>
+		<td style="width:20px;"></td>
+	</tr>
+	<tr><td colspan="3" style="height:20px;"></td></tr>
+</table>

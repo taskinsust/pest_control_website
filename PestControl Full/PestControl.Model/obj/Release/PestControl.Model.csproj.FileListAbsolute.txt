@@ -1,0 +1,7 @@
+D:\PROJECTS\PestControl\PestControl.Model\bin\Release\PestControl.Model.dll
+D:\PROJECTS\PestControl\PestControl.Model\bin\Release\PestControl.Model.pdb
+D:\PROJECTS\PestControl\PestControl.Model\bin\Release\FluentNHibernate.dll
+D:\PROJECTS\PestControl\PestControl.Model\bin\Release\Iesi.Collections.dll
+D:\PROJECTS\PestControl\PestControl.Model\bin\Release\NHibernate.dll
+D:\PROJECTS\PestControl\PestControl.Model\obj\Release\PestControl.Model.dll
+D:\PROJECTS\PestControl\PestControl.Model\obj\Release\PestControl.Model.pdb

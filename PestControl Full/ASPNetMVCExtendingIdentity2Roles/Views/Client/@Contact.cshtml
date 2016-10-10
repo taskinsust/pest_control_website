@@ -1,0 +1,67 @@
+﻿@model ASPNetMVCExtendingIdentity2Roles.Models.ContactViewModel
+
+@{
+    ViewBag.Title = "Contact Us";
+    Layout = "~/Views/Shared/_MainPagePartialLayout.cshtml";
+}
+<section class="no-margin">
+    @*place/8574+Dynasty+Dr,+Boca+Raton,+FL+33433,+USA/@26.332594,-80.179844,3a,52.5y,84h,90t/data=!3m4!1e1!3m2!1sVFpubsRdVWef5_pyMMtNww!2e0!4m7!1m4!3m3!1s0x88d91c7103bd5203:0x47bfc3da82b0aba1!2s8574+Dynasty+Dr,+Boca+Raton,+FL+33433,+USA!3b1!3m1!1s0x88d91c7103bd5203:0x47bfc3da82b0aba1!6m1!1e1?hl=en*@
+    <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.au/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Dhaka,+Dhaka+Division,+Bangladesh&amp;aq=0&amp;oq=dhaka+ban&amp;sll=40.714353,-74.005973&amp;sspn=0.836898,1.815491&amp;ie=UTF8&amp;hq=&amp;hnear=Dhaka+Division,+Bangladesh&amp;t=m&amp;ll=24.542126,90.293884&amp;spn=0.124922,0.411301&amp;z=8&amp;output=embed"></iframe>
+</section>
+<hr/>
+<div class="panel panel-primary" style="margin: 0 auto;width: 70%">
+    <div class="panel-heading"><h4>Contact Form</h4></div>
+    <div class="panel-body">
+        <section id="contact-page" class="container">
+            <div class="row-fluid">
+                <div class="span8">
+                   
+                    <div class="status alert alert-success" style="display: none"></div>
+                    @using (Html.BeginForm())
+                    {
+                        @*<form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">*@
+                        <div class="row-fluid">
+                            <div class="span5">
+                                <label>First Name</label>
+                                @Html.TextBoxFor(x => x.Firstname, new { @class = "input-block-level", placeholder = "Your First Name" })
+                                @Html.ValidationMessageFor(x => x.Firstname)
+
+                                <label>Last Name</label>
+                                @Html.TextBoxFor(x => x.LastName, new { @class = "input-block-level", placeholder = "Your Last Name" })
+                                @Html.ValidationMessageFor(x => x.LastName)
+                                <label>Email Address</label>
+                                @Html.TextBoxFor(x => x.Email, new { @class = "input-block-level", placeholder = "Your Email" })
+                                @Html.ValidationMessageFor(x => x.Email)
+                                <label>Address</label>
+                                @Html.TextBoxFor(x => x.Address, new { @class = "input-block-level", placeholder = "Your Address" })
+                                @Html.ValidationMessageFor(x => x.Address)
+                                <label>City</label>
+                                @Html.TextBoxFor(x => x.City, new { @class = "input-block-level", placeholder = "Your City" })
+                                @Html.ValidationMessageFor(x => x.City)
+                                <label>State</label>
+                                @Html.TextBoxFor(x => x.State, new { @class = "input-block-level", placeholder = "Your State" })
+                                @Html.ValidationMessageFor(x => x.State)
+                                <label>Zip/Postal code</label>
+                                @Html.TextBoxFor(x => x.PostalCode, new { @class = "input-block-level", placeholder = "Your Zipcode" })
+                                @Html.ValidationMessageFor(x => x.PostalCode)
+                                <label>Phone</label>
+                                @Html.TextBoxFor(x => x.Phone, new { @class = "input-block-level", placeholder = "Your Phone" })
+                                @Html.ValidationMessageFor(x => x.Phone)
+                                <label>Message</label>
+                                @Html.TextAreaFor(x => x.Message, new { @class = "input-block-level", placeholder = "Your First Name" })
+                                @Html.ValidationMessageFor(x => x.Message)
+                                <label>Schedual</label>
+                                @Html.TextBoxFor(x => x.Schedual, new { @class = "input-block-level", placeholder = "Your schedual" })
+                                @Html.ValidationMessageFor(x => x.Schedual)
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large pull-right">Send Message</button>
+                        <p> </p>
+                        @*</form>*@
+                    }
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>

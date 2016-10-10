@@ -1,0 +1,67 @@
+﻿@model PestControl.Web.Models.SubMenuAdminViewModel
+
+@{
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminPageLayout.cshtml";
+    ViewBag.Title = "Sub Menu List";
+}
+
+<div class="panel panel-primary">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Sub Menu List</div>
+    <div class="panel-body">
+        <!-- Table -->
+        <table class="table table-hover table-bordered">
+            <tr>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            @foreach (var item in Model.SubMenuList)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>
+                        @if (item.IsDisable)
+                        {
+                            <a href="@Url.RouteUrl("ChangeSubmenuActivation", new { pageIndex = Model.SubMenuList.PageIndex, id = item.Id })">Disable</a>
+                            @*<a href="@Url.RouteUrl("ChangeActivation", new { active = true, isMenu = true, pageIndex = Model.SubMenuList.PageIndex, id = item.Id })">Disable</a>*@
+                        }
+                        else
+                        {
+                            <a href="@Url.RouteUrl("ChangeSubmenuActivation", new { pageIndex = Model.SubMenuList.PageIndex, id = item.Id })">Enable</a>
+                            @*<a href="@Url.RouteUrl("ChangeActivation", new { active = false, isMenu = true, pageIndex = Model.SubMenuList.PageIndex, id = item.Id })">Enable</a>*@
+                        }
+                        <a href="@Url.RouteUrl("EditSubMenu", new {id = item.Id })">Edit</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="panel-footer">
+        <nav>
+            <ul class="pagination">
+                @if (Model.SubMenuList.HasPreviousPage)
+                {
+                    <li>
+                        <a href="@Url.RouteUrl("MenuAdminList", new { pageIndex = 0 })" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+
+                    </li>
+                }
+                <li><a href="#" style="text-decoration:none; cursor:none">Showing @(Model.SubMenuList.PageIndex + 1) of @Model.SubMenuList.TotalPages</a></li>
+                @if (Model.SubMenuList.HasNextPage)
+                {
+                    <li>
+
+                        <a href="@Url.RouteUrl("MenuAdminList", new { pageIndex = Model.SubMenuList.PageIndex + 1 })" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</div>
+

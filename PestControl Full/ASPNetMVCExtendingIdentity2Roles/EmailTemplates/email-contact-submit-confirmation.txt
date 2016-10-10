@@ -1,0 +1,52 @@
+﻿<table>
+	<tr><td colspan="3" style="height:20px;"></td></tr>
+	<tr>
+		<td style="width:20px;"></td>
+		<td>
+			<img src="$Logo$" alt="PestControl" style="width:140px;height:32px;" />
+
+			<table>
+				<tr><td style="height:20px;"></td></tr>
+				<tr>
+					<td style="border: solid 1px #ddd; border-width: 1px 0; padding: 20px 0;font-family:Tahoma;">
+					Dear $ClientName$,
+					<br/><br/>
+					Your schedule request is successfully submitted to <b>"AlfaJ PestControl Services"</b>.
+					You will have a request approval email soon.
+					<br/><br/>
+					========= Your Contact Request Information ==========
+					<br/><br/>
+					Email : $Email$
+					<br/>
+					Address: $Address$
+					<br/>
+					City: $City$, State/Province: $State$, Zip/Postal Code: $Zip$
+					<br/>
+					Phone: $Phone$
+					<br/>
+					Requested DateTime: $Schedual$
+					<br/>
+					Your Message: $Message$
+					<br/><br/>
+					If you want to change your submitted information, please make a call to our customer care.
+					<br/>
+					Have a good day.
+					<br/><br/>
+					With Regards,
+					<br/><br/>
+					The PestControl Team
+					<br/>
+					</td>
+				</tr>
+				<tr><td style="height:10px;"></td></tr>
+			</table>
+
+			<p style="font-size: 80%; font-family:Tahoma;">
+				This message was sent from $Recipient$.<br />
+				PestControl Inc, USA.
+			</p>
+		</td>
+		<td style="width:20px;"></td>
+	</tr>
+	<tr><td colspan="3" style="height:20px;"></td></tr>
+</table>

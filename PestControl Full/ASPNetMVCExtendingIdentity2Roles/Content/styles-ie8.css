@@ -1,0 +1,13 @@
+﻿
+/*.intro {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../img/intro-bg.jpg', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='../img/intro-bg.jpg', sizingMethod='scale')";
+}*/
+
+.btn-circle:hover, .btn-circle:focus {
+	background: url(../img/btn-circle_hover-bg.png) repeat;
+}
+
+.brand-heading {
+  font-size: 80px;
+}

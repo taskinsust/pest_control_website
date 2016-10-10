@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "GalleryView";
+    Layout = "~/Views/Shared/_MainPagePartialLayout.cshtml";
+}
+<!-- container -->
+<div class="container">
+    <div class="row">
+        <header class="page-header">
+            <h1 class="page-title">Gallery</h1>
+        </header>
+
+        @{
+            List<PestControl.Model.Entity.Gallery> GalleryList = (List<PestControl.Model.Entity.Gallery>)Model;
+            for (int GalleryListIndexNumber = 0; GalleryListIndexNumber < GalleryList.Count; GalleryListIndexNumber++)
+            {
+                <section id="portfolio" class="page-section section appear clearfix">
+                    <h4>@GalleryList[GalleryListIndexNumber].Name</h4>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="portfolio-items isotopeWrapper clearfix" id="3">
+                                    <ul class="">
+                                        @{
+                                            for (int imageListIndexNumber = 0; imageListIndexNumber < GalleryList[GalleryListIndexNumber].GalleryImages.Count; imageListIndexNumber++)
+                                            {
+                                                int fIndex = GalleryList[GalleryListIndexNumber].GalleryImages[imageListIndexNumber].ImageUrl.IndexOf("Images", System.StringComparison.Ordinal);
+
+                                                <li class="col-sm-4 isotopeItem">
+                                                    <div class="portfolio-item">
+                                                        <img src="@GalleryList[GalleryListIndexNumber].GalleryImages[imageListIndexNumber].ImageUrl.Substring(fIndex)" alt="" />
+                                                        @{
+                                                            string imageUrlWithImageName = GalleryList[GalleryListIndexNumber].GalleryImages[imageListIndexNumber].ImageUrl.Substring(fIndex).ToString();
+                                                            var imageNameWithExtention = imageUrlWithImageName.Substring(imageUrlWithImageName.LastIndexOf(("\\")) + 1);
+
+                                                            int fL = imageNameWithExtention.IndexOf(".");
+                                                            String imageName = imageNameWithExtention.Substring(0, fL);
+
+                                                        }
+                                                        <div class="portfolio-desc align-center">
+                                                            <div class="folio-info">
+                                                                <a href="@GalleryList[GalleryListIndexNumber].GalleryImages[imageListIndexNumber].ImageUrl.Substring(fIndex)" class="fancybox">
+                                                                    <h5>@imageName</h5>
+                                                                    <i class="fa fa-link fa-2x"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            }//loop end for total gallery model count
+        }
+    </div>
+</div>	<!-- /container -->
+

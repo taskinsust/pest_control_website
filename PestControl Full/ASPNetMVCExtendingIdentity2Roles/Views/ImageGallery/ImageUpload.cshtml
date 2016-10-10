@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "ImageUpload";
+    Layout = "~/Views/Shared/_AdminPageLayout.cshtml";
+}
+
+<link href="~/Content/styleUploader.css" rel="stylesheet" />
+<script src="~/Scripts/MultipleFileUpload/jquery.knob.js"></script>
+<script src="~/Scripts/MultipleFileUpload/jquery.ui.widget.js"></script>
+<script src="~/Scripts/MultipleFileUpload/jquery.iframe-transport.js"></script>
+<script src="~/Scripts/MultipleFileUpload/jquery.fileupload.js"></script>
+
+<script src="~/Scripts/MultipleFileUpload/FileUploadScript.js"></script>
+
+<!-- Our main JS file -->
+@*<script src="assets/js/script.js"></script>*@
+
+<style>
+    input {
+        margin-top: 5px;
+    }
+
+    .ProgressShow {
+        display: block;
+    }
+
+    input[type="file"] {
+        display: block;
+        padding: 0;
+    }
+</style>
+<div class="subContent" style="width: 700px;margin: 50px auto">
+    @using (Html.BeginForm("SaveGalleryImages", "ImageGallery", System.Web.Mvc.FormMethod.Post, new { EncType = "multipart/form-data", id = "upload" }))
+    {
+        <div id="drop">
+            Drop Here
+            <a>Browse</a>
+            <input type="file" name="file" multiple />
+        </div>
+
+        <ul>
+            <!-- The file uploads will be shown here -->
+        </ul>
+    }
+</div>
+@*<div style="margin: 0 auto" >
+        <a class="btn btn-primary" href="@Url.Action("BackProDetails", "PropertyRegistration")"> Back </a>
+        <a class="btn btn-warning" id="finish" href=""> Finish </a>
+
+    </div>*@
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#finish").click(function () {
+            //var jqXHR = data.submit();
+        });
+    });
+</script>
+

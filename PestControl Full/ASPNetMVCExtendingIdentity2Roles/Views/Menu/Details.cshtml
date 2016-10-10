@@ -1,0 +1,41 @@
+﻿@model PestControl.Web.Models.ServiceDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainPagePartialLayout.cshtml";
+}
+
+@*<div class="container">
+
+    <div class="row">
+        <div class="col-md-8">
+            <h3> @Model.Name </h3>
+            <div> @Html.Raw(Model.FullDescription)</div>
+        </div>
+    </div>
+</div>*@
+
+@*<div class="container serviceslist" style="min-height:400px">
+    <div class="row">
+        <div class="col-md-12">
+            <header class="page-header">
+                <h1 class="page-title">@Model.Name</h1>
+            </header>
+        </div>
+    </div>
+    <div class="row">        
+        @Html.Raw(Model.FullDescription)
+    </div>
+</div>*@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <header class="page-header">
+                <h1 class="page-title">@Model.Name</h1>
+            </header>
+        </div>
+    </div>
+    <div class="raw">
+        @Html.Raw(Model.FullDescription);
+    </div>
+</div>
