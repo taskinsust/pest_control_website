@@ -5,9 +5,9 @@ This README would normally document whatever steps are necessary to get your app
 ### What is this repository for? ###
 
 * Quick summary
-Complete Pest Control Website 
-Dynamic Menu creation with Friendly Url generator
-Complete customize solution 
+1. Complete Pest Control Website 
+2. Dynamic Menu creation with Friendly Url generator
+3. Complete customize solution 
 
 * Version
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
